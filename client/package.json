@@ -1,5 +1,5 @@
 {
-  "name": "qucore-dynamic-MODULE-client",
+  "name": "qucore-dynamic-auth-client",
   "version": "1.0.0",
   "author": "Artem_Zhyto <https://github.com/ArtemZhyto>",
   "contributors": [
@@ -7,7 +7,7 @@
   ],
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev --turbopack --port 3020",
     "build": "next build",
     "start": "next start",
     "test": "jest --verbose",
@@ -28,11 +28,12 @@
     "socket.io-client": "^4.8.1"
   },
   "devDependencies": {
+    "@types/jest": "^30.0.0",
     "@types/node": "^24.7.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@types/jest": "^30.0.0",
-    "typescript": "^5",
-    "jest": "^30.2.0"
+    "autoprefixer": "^10.4.27",
+    "jest": "^30.2.0",
+    "typescript": "^5"
   }
 }

@@ -1,13 +1,7 @@
 // Types
-import type { NextConfig } from "next"
+import type { NextConfig } from 'next'
 
-// Modules
-import path from "path"
-import dotenv from "dotenv"
-
-dotenv.config({ path: path.resolve(__dirname, "../.env") })
-
-const isProd = process.env.MODE === "prod"
+const isProd = process.env.MODE === 'prod'
 
 const nextConfig: NextConfig = {
   experimental: {
@@ -15,24 +9,34 @@ const nextConfig: NextConfig = {
     externalDir: true,
   },
 
+  async rewrites() {
+    return [
+      {
+        source: '/api/auth/:path*',
+        destination: `${process.env.AUTH_SERVICE_URL}/:path*`,
+      },
+    ]
+  },
+
   images: {
     remotePatterns: [
       {
-        protocol: isProd ? "https" : "http",
-        hostname: isProd ? process.env.SITE! : "localhost",
-        port: isProd ? "" : process.env.SERVER_PORT!,
-        pathname: "/api/**",
+        protocol: isProd ? 'https' : 'http',
+        hostname: isProd ? process.env.NEXT_PUBLIC_SITE! : 'localhost',
+        port: isProd ? '' : '3020',
+        pathname: '/api/**',
       },
     ],
   },
 
   headers: async () => [
     {
-      source: "/(.*)",
+      source: '/(.*)',
       headers: [
         {
-          key: "Content-Security-Policy",
-          value: "frame-src 'self' https://www.google.com;",
+          key: 'Content-Security-Policy',
+          value:
+            "frame-src 'self' https://www.google.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google.com https://www.gstatic.com; connect-src 'self';",
         },
       ],
     },
