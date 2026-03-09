@@ -22,8 +22,11 @@
 ```bash
 # Clone repository
 git clone https://github.com/your-username/qucore-ath.git
-cd qucore-ath
-
+cd qucore-ath/client
+# Or
+cd qucore-ath/server
+```
+```bash
 # Install dependencies
 npm install
 
