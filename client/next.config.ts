@@ -13,7 +13,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/api/auth/:path*',
-        destination: `${process.env.AUTH_SERVICE_URL}/:path*`,
+        destination: `${process.env.AUTH_API_URL}/:path*`,
       },
     ]
   },

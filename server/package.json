@@ -17,6 +17,7 @@
     "go": "npm run build && npm run start"
   },
   "devDependencies": {
+    "axios": "^1.13.6",
     "typescript": "^5.3.0",
     "@types/node": "^24.7.0"
   }
