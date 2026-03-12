@@ -1,6 +1,5 @@
 // Styles
 import '../global.css'
-import '../layout.scss'
 
 // Font
 import { Prosto_One } from 'next/font/google'
