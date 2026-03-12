@@ -1,7 +1,12 @@
-// Types
-import type { NextConfig } from 'next'
+// Modules
+import createNextIntlPlugin from 'next-intl/plugin'
+
+// Interfaces
+import { NextConfig } from 'next'
 
 const isProd = process.env.MODE === 'prod'
+
+const withNextIntl = createNextIntlPlugin()
 
 const nextConfig: NextConfig = {
   experimental: {
@@ -43,4 +48,4 @@ const nextConfig: NextConfig = {
   ],
 }
 
-export default nextConfig
+export default withNextIntl(nextConfig)
